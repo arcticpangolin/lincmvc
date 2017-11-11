@@ -15,5 +15,6 @@ class HomeController #extends Controller
   
   public function index() {
     echo 'Hello from the home controller!! I am alive :)';
+    echo '<p>Query string parameters: <pre>' . htmlspecialchars(print_r($_GET, true)) . '</pre></p>';
   }
 }
