@@ -14,7 +14,19 @@ namespace Core;
 /**
 * base controller
 */
-class Controller
+abstract class Controller
 {
-  #methods, code, etc
+  /**
+  
+    TODO:
+    - Add notes to everything
+    - clean up
+  
+   */
+  
+  protected $route_params = [];
+
+  public function __construct($route_params) {
+    $this->route_params = $route_params;
+  }
 }
