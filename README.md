@@ -1,1 +1,3 @@
-#LincMVC
+# LincMVC
+
+## A PHP Framework
