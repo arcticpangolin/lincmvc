@@ -87,6 +87,15 @@ class Router
    * @return void
    */
 
+  /**
+  
+    TODO:
+    - MAKE THE EXCEPTIONS WORK HERE
+    - PLEASE
+  
+   */
+  
+
   public function dispatch($url) {
     #remove query string vars
     $url = $this->cleanseUrl($url); 
@@ -102,17 +111,17 @@ class Router
         $action = $this->params['action'];
         $action = $this->convertToCamelCase($action);
 
-        if (is_callable([$controller_object, $action])) {
+        if (preg_match('/action$/i', $action) == 0) {
           $controller_object->$action();
-
         } else {
-          echo "Method $action (in controller $controller) not found";
+            //throw new Exception("Method $action (in controller $controller) cannot be called directly.");
+            echo "Method $action (in controller $controller) cannot be called directly";
         }
       } else {
-        echo "Controller class $controller not found";
+          echo "Controller class $controller not found";
       }
     } else {
-      echo "No route matched";
+        echo "No route matched";
     }
   }
 
@@ -142,7 +151,7 @@ class Router
       if (strpos($parts[0], '=') === false) {
         $url = $parts[0];
       } else {
-        $url = '';
+          $url = '';
       }
     }
     return $url;
