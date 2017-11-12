@@ -4,13 +4,15 @@
 
   TODO:
   - Add better notes
-  - Add namespace and use
+  - Add namespace and use (name space done - now using views)
   - Add core controller functions (auth?)
   - Organize them...
 
  */
 
 namespace Core;
+
+use \Core\View;
 
 /**
 * base controller
