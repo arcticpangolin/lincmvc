@@ -24,6 +24,7 @@ $router = new Core\Router();
 $router->add('', ['controller' => 'Home', 'action' => 'index']);
 $router->add('{controller}/{action}');
 $router->add('{controller}/{id:\d+}/{action}');
+$router->add('test/{controller}/{action}', ['namespace' => 'test']); //test route
 
 $router->dispatch($_SERVER['QUERY_STRING']);
 
