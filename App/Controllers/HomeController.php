@@ -28,7 +28,7 @@ class HomeController extends Controller
     // echo 'Hello from the home controller!! I am alive :)';
     // echo '<p>Query string parameters: <pre>' . htmlspecialchars(print_r($_GET, true)) . '</pre></p>';
     // echo '<p>Route parameters: <pre>' . htmlspecialchars(print_r($this->route_params, true)) . '</pre></p>';
-    View::render('Home/index.php', ['name' => 'John', 'numbers' => ['one', 'two', 'three']]);
+    View::renderTemplate('Home/index.twig', ['name' => 'John', 'numbers' => ['one', 'two', 'three']]);
   }
 
 }
