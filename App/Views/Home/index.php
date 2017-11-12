@@ -6,5 +6,13 @@
 </head>
 <body>
   <h1>View test successful!</h1>
+  <p>Hello <?php echo htmlspecialchars($name); ?>!</p>
+  
+  <ul>
+    <?php foreach ($numbers as $number): ?>
+      <li> <?php echo htmlspecialchars($number); ?> </li>
+    <?php endforeach; ?>
+  </ul>
+
 </body>
 </html>
