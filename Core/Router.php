@@ -90,8 +90,7 @@ class Router
   /**
   
     TODO:
-    - MAKE THE EXCEPTIONS WORK HERE
-    - PLEASE
+    - comments
   
    */
   
@@ -115,14 +114,16 @@ class Router
         if (preg_match('/action$/i', $action) == 0) {
           $controller_object->$action();
         } else {
-            //throw new Exception("Method $action (in controller $controller) cannot be called directly.");
-            echo "Method $action (in controller $controller) cannot be called directly";
+            throw new \Exception("Method $action (in controller $controller) cannot be called directly.");
+            //echo "Method $action (in controller $controller) cannot be called directly";
         }
       } else {
-          echo "Controller class $controller not found";
+          //echo "Controller class $controller not found";
+          throw new \Exception("Controller class $controller not found");
       }
     } else {
-        echo "No route matched";
+        //echo "No route matched";
+        throw new \Exception("No route matched");
     }
   }
 

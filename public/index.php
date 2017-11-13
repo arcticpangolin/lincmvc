@@ -22,6 +22,11 @@
 
 require_once '../vendor/autoload.php';
 
+
+set_error_handler('Core\ErrorHandler::errorHandler');
+set_exception_handler('Core\ErrorHandler::exceptionHandler');
+
+
 $router = new Core\Router();
 
 $router->add('', ['controller' => 'HomeController', 'action' => 'index']);

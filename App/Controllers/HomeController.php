@@ -30,7 +30,6 @@ class HomeController extends Controller
     // echo '<p>Query string parameters: <pre>' . htmlspecialchars(print_r($_GET, true)) . '</pre></p>';
     // echo '<p>Route parameters: <pre>' . htmlspecialchars(print_r($this->route_params, true)) . '</pre></p>';
     $samples = SampleModel::getAll();
-    echo 'hi';
     View::renderTemplate('Home/index.twig', ['samples' => $samples]);
   }
 
