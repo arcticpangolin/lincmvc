@@ -23,6 +23,7 @@
 require_once '../vendor/autoload.php';
 
 
+//error_reporting(E_ALL); //debug level error printing
 set_error_handler('Core\ErrorHandler::errorHandler');
 set_exception_handler('Core\ErrorHandler::exceptionHandler');
 
