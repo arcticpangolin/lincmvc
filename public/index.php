@@ -7,6 +7,15 @@
 * Written by John Lincoln 2017
 */
 
+/**
+
+  TODO:
+  - clean up code
+  - add comments to different pieces
+
+ */
+
+
 // require '../App/Controllers/HomeController.php';
 
 // require '../Core/Router.php';

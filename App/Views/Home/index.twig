@@ -5,10 +5,11 @@
 {% block body %}
 
   <h1>View test successful!</h1>
-  <p>Hello from twig, {{ name }}!</p>
+  <p>Hello from twig!</p>
   <ul>
-    {% for number in numbers %}
-      <li> {{ number }} </li>
+    {% for sample in samples %}
+      <h2> {{ sample.title }} </h2>
+      <p> {{ sample.content }} </p>
     {% endfor %}
   </ul>
 
