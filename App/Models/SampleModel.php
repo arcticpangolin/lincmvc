@@ -3,21 +3,23 @@
 namespace App\Models;
 
 use PDO;
+use Core\Model;
 
 /**
 * sample model class
 */
-class SampleModel #extends AnotherClass
+class SampleModel extends Model
 {
   
   public static function getAll() {
-    $host = 'localhost';
-    $dbname = 'mvc';
-    $username = 'root';
-    $password = 'root';
+    // $host = 'localhost';
+    // $dbname = 'mvc';
+    // $username = 'root';
+    // $password = 'root';
 
     try {
-      $db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8",$username,$password);
+      //$db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8",$username,$password);
+      $db = static::getDB();
 
       $query = $db->query('select * from sample');
 
