@@ -1,27 +1,22 @@
 <?php
 
 /**
-
-  TODO:
-  - many comments
-  - twig
-  - probably a lot more
-
- */
+* Core View
+*
+* PHP 7
+* Written by John Lincoln 2017
+*/
 
 namespace Core;
 
-/**
-* base view
-*/
 class View
 {
   /**
    * 
-   * Render a view
+   * Function render
+   * render a view
    *
-   * @param string $view - The View File
-   *
+   * @param string $view - the view file
    * @return void
    */
 
@@ -36,6 +31,15 @@ class View
       throw new \Exception("$file not found");
     }
   }
+
+  /**
+   * 
+   * Function renderTemplate
+   * render a twig template
+   *
+   * @param string $template - the template file
+   * @return void
+   */
 
   public static function renderTemplate($template, $args = []) {
     static $twig = null;

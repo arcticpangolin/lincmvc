@@ -9,14 +9,6 @@
 */
 
 /**
-
-  TODO:
-  - debug level setting to env
-  - strengthen example routes and organize
-
- */
-
-/**
  *
  * Register the Auto Loader
  *
@@ -25,24 +17,30 @@
  *
  */
 
-
 require_once '../vendor/autoload.php';
 
 /**
  *
  * Confirgure the Error Handler
  *
- * Lightweiht error handling provided out of the box - to customize
+ * Lightweight error handling provided out of the box - to customize
  * your error handling, alter the class defied in the functions
  * below - i.e. Core\ErrorHandler
  *
  */
 
-
 //error_reporting(E_ALL); //debug level error printing
 set_error_handler('Core\ErrorHandler::errorHandler');
 set_exception_handler('Core\ErrorHandler::exceptionHandler');
 
+/**
+ *
+ * Instantiate a new router object
+ *
+ * Create a new router object to perform routing functions for the application.
+ * .htaccess comes pre-configured to handle friendly URLs and maintain the query string.
+ *
+ */
 
 $router = new Core\Router();
 
@@ -57,12 +55,10 @@ $router = new Core\Router();
  * 
  */
 
-
 $router->add('', ['controller' => 'HomeController', 'action' => 'index']);
 $router->add('{controller}/{action}');
 $router->add('{controller}/{id:\d+}/{action}');
 $router->add('test/{controller}/{action}', ['namespace' => 'test']);
-
 
 /**
  *
