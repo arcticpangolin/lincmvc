@@ -1,5 +1,12 @@
 <?php
 
+/**
+ *
+ * Core ErrorHandler
+ * PHP 7
+ * Written by John Lincoln 2017
+ */
+
 namespace Core;
 
 /**
@@ -11,24 +18,38 @@ namespace Core;
 
  */
 
-
-/**
-* base error handler
-*/
 class ErrorHandler
 {
+
+  /**
+   *
+   * Fcuntion errorHandler
+   * convert erros to Exceptions by throwing \ErrorException
+   * 
+   * @param int $level - error level
+   * @param string $message - error message
+   * @param string $file - filename the error was raised in
+   * @param int $line - line number in the file
+   *
+   * @return void
+   */
+  
   public static function errorHandler($level, $message, $file, $line) {
     if (error_reporting() !== 0) {
       throw new \ErrorException($message, 0, $level, $file, $line);
     }
   }
 
-/**
- *
- * write errors or log errors based on config
- *
- */
-
+  /**
+   *
+   * Function exceptionHandler
+   * handle exceptions - including default HTTP status codes
+   *
+   * @param $exception - the exception
+   * 
+   * @return void
+   *
+   */
 
   public static function exceptionHandler($exception) {
     
@@ -55,7 +76,7 @@ class ErrorHandler
       $message .= "\nThrown in '" . $exception->getFile() . "' on line " . $exception->getLine();
 
       error_log($message);
-      
+
       View::renderTemplate("Errors/$code.twig");
     }
   }
