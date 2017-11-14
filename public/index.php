@@ -1,26 +1,42 @@
 <?php
 
 /**
-* Front controller
+* LincMVC - A light PHP framework
 *
 * PHP 7
-* Written by John Lincoln 2017
+* @package LincMVC
+* @author John Lincoln <jlincoln88@gmail.com>
 */
 
 /**
 
   TODO:
-  - clean up code
-  - add comments to different pieces
+  - debug level setting to env
+  - strengthen example routes and organize
 
  */
 
+/**
+ *
+ * Register the Auto Loader
+ *
+ * Compuser provides a nice autoloader that we can leverage
+ * for our framework.
+ *
+ */
 
-// require '../App/Controllers/HomeController.php';
-
-// require '../Core/Router.php';
 
 require_once '../vendor/autoload.php';
+
+/**
+ *
+ * Confirgure the Error Handler
+ *
+ * Lightweiht error handling provided out of the box - to customize
+ * your error handling, alter the class defied in the functions
+ * below - i.e. Core\ErrorHandler
+ *
+ */
 
 
 //error_reporting(E_ALL); //debug level error printing
@@ -30,31 +46,31 @@ set_exception_handler('Core\ErrorHandler::exceptionHandler');
 
 $router = new Core\Router();
 
+/**
+ *
+ * Application Routes
+ *
+ * Register the routes for your application here. These routes can
+ * either be hard coded, or they can leverage variables wrapped in { }.
+ * You can also add custom variables and define the regex in line - e.g. /{id:\d+}/
+ * Some examples are provided below to get you started.
+ * 
+ */
+
+
 $router->add('', ['controller' => 'HomeController', 'action' => 'index']);
 $router->add('{controller}/{action}');
 $router->add('{controller}/{id:\d+}/{action}');
-$router->add('test/{controller}/{action}', ['namespace' => 'test']); //test route
-
-$router->dispatch($_SERVER['QUERY_STRING']);
-
-
+$router->add('test/{controller}/{action}', ['namespace' => 'test']);
 
 
 /**
  *
- * degub stuff
+ * Dispatch the Route
+ *
+ * Effectively jumping into the application. You're off!!
  *
  */
 
-// echo '<pre>';
-// echo htmlspecialchars(print_r($router->getRoutes(), true));
-// echo '<pre>'; 
 
-// $url = $_SERVER['QUERY_STRING'];
-// if ($router->match($url)) {
-//   echo '<pre>';
-//   var_dump($router->getParams());
-//   echo '<pre>';
-// } else {
-//   echo "No route found for URL '$url'";
-// }
+$router->dispatch($_SERVER['QUERY_STRING']);
