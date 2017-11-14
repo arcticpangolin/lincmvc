@@ -1,48 +1,54 @@
 <?php
 
 /**
-
-  TODO:
-  - Add better notes
-  - Add namespace and use (name space done - now using views)
-  - Add core controller functions (auth?)
-  - Organize them...
-
- */
+* Core View
+*
+* PHP 7
+* Written by John Lincoln 2017
+*/
 
 namespace Core;
 
 use \Core\View;
 
-/**
-* base controller
-*/
 abstract class Controller
 {
+
   /**
-  
-    TODO:
-    - Add notes to everything
-    - clean up
-  
+   *
+   * parameters from the matched route
+   * @var array
    */
   
   protected $route_params = [];
 
+  /**
+   *
+   * Function __construct - class constructor
+   *
+   * @param array $route_params - parameters from the matched route
+   *
+   * @return void
+   */
+  
+
   public function __construct($route_params) {
     $this->route_params = $route_params;
   }
-
+  
   /**
-  
-    TODO:
-    - note below the call magic method use
-    - all controller action functions must follow the {name}Action convention
-    - they must be called without the action suffix
-    - also comment on protected helper functions
-  
+   *
+   * Function __call - PHP Magic method
+   * called when a bad method is called on a Core Controller object as
+   * well as allow for the implementation of action filters.
+   * 
+   * ALL actions must include the suffix Action - e.g. indexAction
+   * 
+   * @param string $name - method name
+   * @param array $args - args passed to the method
+   *
+   * @return void
    */
-  
 
   public function __call($name, $args) {
     $method = $name . 'Action';
@@ -57,10 +63,26 @@ abstract class Controller
     }
   }
 
+  /**
+   *
+   * Function before - action filter
+   * called before the execution of the controller action
+   * 
+   * @return void
+   */
+
   protected function before() {
     # blank slate
     # return false in before() method on controller to prevent the execution of the called action (auth)
   }
+
+  /**
+   *
+   * Function after - action filter
+   * called after the execution of the controller action
+   * 
+   * @return void
+   */
 
   protected function after() {
     # blank slate
