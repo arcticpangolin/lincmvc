@@ -102,8 +102,7 @@ class Router
     if ($this->match($url)) {
       $controller = $this->params['controller'];
       $controller = $this->convertToStudlyCaps($controller);
-      //$controller = "App\Controllers\\$controller";
-      $controller = $this->getNamespace() . $controller; //testing helper function instead of hardcoding
+      $controller = $this->getNamespace() . $controller;
 
       if (class_exists($controller)) {
         $controller_object = new $controller($this->params);
@@ -114,16 +113,13 @@ class Router
         if (preg_match('/action$/i', $action) == 0) {
           $controller_object->$action();
         } else {
-            throw new \Exception("Method $action (in controller $controller) cannot be called directly.");
-            //echo "Method $action (in controller $controller) cannot be called directly";
+          throw new \Exception("Method $action (in controller $controller) cannot be called directly.");
         }
       } else {
-          //echo "Controller class $controller not found";
-          throw new \Exception("Controller class $controller not found");
+        throw new \Exception("Controller class $controller not found");
       }
     } else {
-        //echo "No route matched";
-        throw new \Exception("No route matched", 404);
+      throw new \Exception("No route matched", 404);
     }
   }
 
@@ -153,7 +149,7 @@ class Router
       if (strpos($parts[0], '=') === false) {
         $url = $parts[0];
       } else {
-          $url = '';
+        $url = '';
       }
     }
     return $url;

@@ -12,13 +12,9 @@ class SampleModel extends Model
 {
   
   public static function getAll() {
-    // $host = 'localhost';
-    // $dbname = 'mvc';
-    // $username = 'root';
-    // $password = 'root';
 
     try {
-      //$db = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8",$username,$password);
+      
       $db = static::getDB();
 
       $query = $db->query('select * from sample');

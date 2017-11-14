@@ -7,6 +7,7 @@ namespace App;
   TODO:
   - app configs
   - cleanup / comment / move sensitive stuff to .env
+  - https://github.com/vlucas/phpdotenv - for .env implementation
 
  */
 

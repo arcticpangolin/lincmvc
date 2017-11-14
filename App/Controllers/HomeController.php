@@ -17,18 +17,15 @@ class HomeController extends Controller
   
 
   protected function before() {
-    //echo "first";
+    # code to run before action
     # return false to not execute action
   }
 
   protected function after() {
-    //echo "last";
+    # code to run after action
   }
 
   public function indexAction() {
-    // echo 'Hello from the home controller!! I am alive :)';
-    // echo '<p>Query string parameters: <pre>' . htmlspecialchars(print_r($_GET, true)) . '</pre></p>';
-    // echo '<p>Route parameters: <pre>' . htmlspecialchars(print_r($this->route_params, true)) . '</pre></p>';
     $samples = SampleModel::getAll();
     View::renderTemplate('Home/index.twig', ['samples' => $samples]);
   }

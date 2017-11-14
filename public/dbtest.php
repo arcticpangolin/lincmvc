@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Database connection data
+ * Database connection data - manual test "url/dbtest.php"
  */
 $host = "localhost";
 $db_name = "mvc";
