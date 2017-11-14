@@ -1,7 +1,7 @@
 <?php
 
 /**
-* Router
+* Core Router
 *
 * PHP 7
 * Written by John Lincoln 2017
@@ -29,7 +29,32 @@ class Router
   protected $params = [];
 
   /**
+   *
+   * Function getRoutes
+   * get an array of all routes
+   *
+   * @return array
+   */
+  
+  public function getRoutes() {
+    return $this->routes;
+  }
+
+  /**
+   *
+   * Function getParams
+   * get the currently matched params
+   *
+   * @return array
+   */
+  
+  public function getParams() {
+    return $this->params;
+  }
+
+  /**
   *
+  * Function add
   * add routes to routing table
   * @param string $route - Route URL
   * @param array $params - Parameters (controller/action/yadda)
@@ -55,6 +80,7 @@ class Router
 
   /**
    *
+   * Function match
    * match URL to route in routing table,
    * setting parameters if match successful
    * 
@@ -80,20 +106,13 @@ class Router
 
   /**
    *
+   * Function dispatch
    * dispatch the route --ADD MODE NOTES
    * 
    * @param string #url - Route URL
    *
    * @return void
    */
-
-  /**
-  
-    TODO:
-    - comments
-  
-   */
-  
 
   public function dispatch($url) {
     #remove query string vars
@@ -123,23 +142,48 @@ class Router
     }
   }
 
-/**
-
-  TODO:
-  - Add notes for these text conversion helper functions
-  - Add notes to url cleansing function
-  - Figure out where it makes sense for them to live
-
- */
-
+  /**
+   *
+   * Helper Functions
+   * 
+   */
+  
+  /**
+   *
+   * Function convertToStudlyCaps
+   * convert a string to studley caps - e.g. StudlyCapsClass
+   *
+   * @param string $string - String to convert
+   * @return string
+   */
   
   protected function convertToStudlyCaps($string) {
     return str_replace(' ', '', ucwords(str_replace('-', ' ', $string)));
   }
 
+  /**
+   *
+   * Funciton convertToCamelCase
+   * convet a string to camel calse - e.g. camelCaseFunction
+   *
+   * @param string #string - String to convert
+   * @return string
+   */
+  
+
   protected function convertToCamelCase($string) {
     return lcfirst($this->convertToStudlyCaps($string));
   }
+
+  /**
+   *
+   * Function cleaseUrl
+   * clease the URL of all query string variables
+   * 
+   * @param string $url - URL to cleanse
+   * @return string
+   */
+  
 
   protected function cleanseUrl($url) {
     if ($url != '') {
@@ -155,6 +199,14 @@ class Router
     return $url;
   }
 
+  /**
+   *
+   * Function getNamespace
+   * get the namespace for a controller if passed as a route param
+   *
+   * @return string
+   */
+
   protected function getNamespace() {
     $namespace = 'App\Controllers\\';
 
@@ -163,27 +215,4 @@ class Router
     }
     return $namespace;
   }
-
-  /**
-   *
-   * get an array of all routes
-   *
-   * @return array
-   */
-  
-  public function getRoutes() {
-    return $this->routes;
-  }
-
-  /**
-   *
-   * get the currently matched params
-   *
-   * @return array
-   */
-  
-  public function getParams() {
-    return $this->params;
-  }
-
 }
