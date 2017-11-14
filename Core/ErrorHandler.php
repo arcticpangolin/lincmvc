@@ -9,15 +9,6 @@
 
 namespace Core;
 
-/**
-
-  TODO:
-  - COMMENT EVERYHING
-  - make this much better
-  - fix action to user if SHOW_ERRORS is not enabled
-
- */
-
 class ErrorHandler
 {
 
@@ -53,19 +44,22 @@ class ErrorHandler
 
   public static function exceptionHandler($exception) {
     
+    # set default HTTP code to 500 (404 handled in the Core Router)
     $code = $exception->getCode();
     if ($code != 404) {
       $code = 500;
     }
-
     http_response_code($code);
 
+    # if SHOW_ERRORS = true (debug mode) then print error text on the page
     if (\App\Config::SHOW_ERRORS) {
       echo "<h1>Fatal error</h1>";
       echo "<p>Uncaught exception :'" . get_class($exception) . "'</p>";
       echo "<p>Message: '" . $exception->getMessage() . "'</p>";
       echo "<p>Stack trace:<pre>" . $exception->getTraceAsString() . "</pre></p>";
       echo "<p>Thrown in '" . $exception->getFile() . "' on line " . $exception->getLine() . "</p>";
+    # if SHOW_ERRORS = false (prod mode) then write the errors to the logs/ directory
+    # render the corresponding twig template for the HTTP status code returned
     } else {
       $log = dirname(__DIR__) . '/logs/' . date('Y-m-d') . '.txt';
       ini_set('error_log', $log);
