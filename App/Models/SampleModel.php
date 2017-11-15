@@ -15,6 +15,15 @@ use Core\Model;
 class SampleModel extends Model
 {
   
+  /**
+   *
+   * Function getAll
+   * get all of the samples from the sample table
+   *
+   * @return array
+   */
+  
+
   public static function getAll() {
 
     try {
