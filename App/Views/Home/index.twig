@@ -4,11 +4,24 @@
 
 {% block body %}
 
-  <h1>View test successful!</h1>
-  <p>Hello from twig!</p>
+  <h1>Welcome to LincMVC</h1>
+  <h2>A super light PHP framework</h2>
+  <br>
+  
+  <p>LincMVC is a lightweight PHP framework, born in response to the prevalence of much heavier options (Laravel / Cake / Zend. Some people don't want a framework that holds their hand through the entire development process -- some people want a shell of a project, with maybe some core functionality baked it. LincMVC aims to provide a minimalistic, core framework, and an organized structure upon which you can build.</p>
+
+  <p>LincMVC comes with the following functionality out of the box:</p>
   <ul>
+    <li>Advanced Routing</li>
+    <li>Twig templating language</li>
+    <li>Core classes (Model, View, Controller)</li>
+    <li>Example implementations</li>
+  </ul>
+
+  <h3 class="center">Database Test:</h3>
+  <ul class="center">
     {% for sample in samples %}
-      <h2> {{ sample.title }} </h2>
+      <h4> {{ sample.title }} </h4>
       <p> {{ sample.content }} </p>
     {% endfor %}
   </ul>
