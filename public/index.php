@@ -21,6 +21,19 @@ require_once '../vendor/autoload.php';
 
 /**
  *
+ * Bootstrap Environmental Variables
+ *
+ * Use PHPDotenv to bootstrap variables in the .env file into the
+ * applications environmental variables. Access the environmental
+ * variables via $_ENV['VAR_NAME'] or getenv('VAR_NAME')
+ *
+ */
+
+$dotenv = new Dotenv\Dotenv(dirname(__DIR__));
+$dotenv->load();
+
+/**
+ *
  * Confirgure the Error Handler
  *
  * Lightweight error handling provided out of the box - to customize

@@ -8,57 +8,63 @@
 * Written by John Lincoln 2017
 */
 
-namespace App;
 
-/**
+//temporarily deprecating this class in favor of bootstrapping config paramenters
+//as environmental variables
 
-  TODO:
-  - app configs
-  - cleanup / comment / move sensitive stuff to .env
-  - https://github.com/vlucas/phpdotenv - for .env implementation
 
- */
 
-class Config
-{
+// namespace App;
 
-  /**
-   *
-   * DB_HOST
-   * default database host
-   */
+// /**
+
+//   TODO:
+//   - app configs
+//   - cleanup / comment / move sensitive stuff to .env
+//   - https://github.com/vlucas/phpdotenv - for .env implementation
+
+//  */
+
+// class Config
+// {
+
+//   /**
+//    *
+//    * DB_HOST
+//    * default database host
+//    */
   
-  const DB_HOST = 'localhost';
+//   const DB_HOST = 'localhost';
 
-  /**
-   *
-   * DB_NAME
-   * default database name
-   */
+//   /**
+//    *
+//    * DB_NAME
+//    * default database name
+//    */
   
-  const DB_NAME = 'mvc';
+//   const DB_NAME = 'mvc';
 
-    /**
-   *
-   * DB_USER
-   * user name used to access the database
-   */
+//     /**
+//    *
+//    * DB_USER
+//    * user name used to access the database
+//    */
 
-  const DB_USER = 'root';
+//   const DB_USER = 'root';
 
-  /**
-   *
-   * DB_PASSWORD
-   * password used to access the database
-   */
+//   /**
+//    *
+//    * DB_PASSWORD
+//    * password used to access the database
+//    */
   
-  const DB_PASSWORD = 'root';
+//   const DB_PASSWORD = 'root';
 
-  /**
-   *
-   * Display Errors
-   * true = errors print in browser; false = errors write to logs
-   */
+//   /**
+//    *
+//    * Display Errors
+//    * true = errors print in browser; false = errors write to logs
+//    */
   
-  const SHOW_ERRORS = true;
-}
+//   const SHOW_ERRORS = true;
+// }
