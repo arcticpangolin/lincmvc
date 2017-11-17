@@ -4,24 +4,24 @@
 
 {% block body %}
 
-  <h1>Welcome to LincMVC</h1>
-  <h2>A super light PHP framework</h2>
+  <h1 class="title">Welcome to LincMVC</h1>
+  <h2 class="title">A super light PHP framework</h2>
   <br>
   
-  <p>LincMVC is a lightweight PHP framework, born in response to the prevalence of much heavier options (Laravel / Cake / Zend. Some people don't want a framework that holds their hand through the entire development process -- some people want a shell of a project, with maybe some core functionality baked it. LincMVC aims to provide a minimalistic, core framework, and an organized structure upon which you can build.</p>
+  <p class="content">LincMVC is a lightweight PHP framework, born in response to the prevalence of much heavier options (Laravel / Cake / Zend). Some people don't want a framework that holds their hand through the entire development process -- some people want a shell of a project, with maybe some core functionality baked it. LincMVC aims to provide a minimalistic, core framework, and an organized structure upon which you can build.</p>
 
-  <p>LincMVC comes with the following functionality out of the box:</p>
-  <ul>
+  <p class="content">LincMVC comes with the following functionality out of the box:</p>
+  <ul class="content">
     <li>Advanced Routing</li>
     <li>Twig templating language</li>
     <li>Core classes (Model, View, Controller)</li>
     <li>Example implementations</li>
   </ul>
-
-  <h3 class="center">Database Test:</h3>
-  <ul class="center">
+  <br>
+  <h3 class="content">Database Test (Twig loop sample):</h3>
+  <ul class="content">
     {% for sample in samples %}
-      <h4> {{ sample.title }} </h4>
+      <p class="bold"> {{ sample.title }} </p>
       <p> {{ sample.content }} </p>
     {% endfor %}
   </ul>

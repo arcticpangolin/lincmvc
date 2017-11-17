@@ -6,12 +6,19 @@
   <script src="/js/app.js"></script>
   <title> {% block title %}{% endblock %} </title>
 </head>
-<nav>
-  <a href="/">Home</a>
-  <a href="/">Sample Nav</a>
-</nav>
+<div>
+  <nav class="nav">
+    <a href="/">Home</a>
+    <a href="/">Sample Nav</a>
+    <a href="/">Login</a>
+  </nav>
+</div>
 <body>
   {% block body %}
   {%  endblock %}
 </body>
+<footer class="footer">
+  <p>Written by John Lincoln - 2017</p>
+  <p><a href="/">GitHub</a><p>
+</footer>
 </html>
