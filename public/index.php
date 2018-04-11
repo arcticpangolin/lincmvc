@@ -1,10 +1,11 @@
 <?php
 
 /**
-* COREphp - A light PHP framework
+* COREphp - A light MVC framework
 *
 * @version PHP 7
-* @package LincMVC
+*
+* @package COREphp
 * @author John Lincoln <jlincoln88@gmail.com>
 * @copyright 2018 Arctic Pangolin
 */

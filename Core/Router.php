@@ -3,8 +3,11 @@
 /**
 * Core Router
 *
-* PHP 7
-* Written by John Lincoln 2017
+* @version PHP 7
+*
+* @package COREphp
+* @author John Lincoln <jlincoln88@gmail.com>
+* @copyright 2018 Arctic Pangolin
 */
 
 namespace Core;

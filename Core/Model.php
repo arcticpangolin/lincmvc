@@ -3,8 +3,11 @@
 /**
 * Core Model
 *
-* PHP 7
-* Written by John Lincoln 2017
+* @version PHP 7
+*
+* @package COREphp
+* @author John Lincoln <jlincoln88@gmail.com>
+* @copyright 2018 Arctic Pangolin
 */
 
 namespace Core;
@@ -16,7 +19,7 @@ abstract class Model
 {
 
   /**
-   * Gets an intantiated PDO object connected to the app's database.
+   * Gets an intantiated PDO object
    *
    * @return PDO
    */
@@ -26,7 +29,7 @@ abstract class Model
         if ($db === null) {
             $dsn = 'mysql:host=' . $_ENV['DB_HOST'] . ';dbname=' . $_ENV['DB_NAME'] . ';charset=utf8';
             $db = new PDO($dsn, $_ENV['DB_USER'], $_ENV['DB_PASSWORD']);
-            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION); #set PDO to throw exceptions
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $db;
         }
     }

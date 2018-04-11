@@ -1,11 +1,4 @@
--- phpMyAdmin SQL Dump
--- version 4.4.10
--- http://www.phpmyadmin.net
---
--- Host: localhost:3306
--- Generation Time: Nov 14, 2017 at 05:22 AM
--- Server version: 5.5.42
--- PHP Version: 7.0.0
+-- RUN THESE QUERIES IN ORDER (create, insert alter, alter)
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
