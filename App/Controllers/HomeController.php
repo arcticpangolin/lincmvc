@@ -1,57 +1,53 @@
 <?php
 
 /**
+ * The Home Controller
  *
- * Controller HomeController
- * example controller displaying what ships with the framework
+ * @version PHP 7
  *
+ * @example Controller
+ * @package COREphp
+ * @author John Lincoln <jlincoln88@gmail.com>
+ * @copyright 2018 Arctic Pangolin
  */
 
-
 namespace App\Controllers;
+
 use Core\Controller;
 use Core\View;
 use App\Models\SampleModel;
 
 class HomeController extends Controller
 {
-  
-  /**
-   *
-   * Function indexAction
-   * renders the index template
-   *
-   * @return void
-   */
+    /**
+     * Renders the index template
+     *
+     * @return void
+     */
+    public function indexAction()
+    {
+        $samples = SampleModel::getAll();
+        View::renderTemplate('Home/index.twig', ['samples' => $samples]);
+    }
 
-  public function indexAction() {
-    $samples = SampleModel::getAll();
-    View::renderTemplate('Home/index.twig', ['samples' => $samples]);
-  }
+    /**
+     * Executes before the controller action
+     *
+     * @return void
+     */
+    protected function before()
+    {
+        // code to run before action
+    }
 
-  /**
-   *
-   * Function before - action filter
-   * called before the execution of the controller action
-   * 
-   * @return void
-   */
-
-  protected function before() {
-    # code to run before action
-    # return false to not execute action
-  }
-
-  /**
-   *
-   * Function after - action filter
-   * called after the execution of the controller action
-   * 
-   * @return void
-   */
-
-  protected function after() {
-    # code to run after action
-  }
-
+    /**
+     *
+     * Executes after the controller action
+     *
+     * @return void
+     */
+    protected function after()
+    {
+        // code to run after action
+    }
 }
