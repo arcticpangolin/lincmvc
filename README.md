@@ -1,7 +1,3 @@
-# LincMVC
+# COREphp
 
-## A PHP Framework
-
-> #### Twig
-> #### Composer
-> #### PHPDotenv
+A homegrown, minimalistic MVC framework written in PHP.

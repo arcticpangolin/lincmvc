@@ -8,8 +8,8 @@ namespace App\Controllers\test;
 
 class TestController extends \Core\Controller
 {
-  
-  public function indexAction() {
-    echo "Test successful";
-  }
+    public function indexAction()
+    {
+        echo "Test successful";
+    }
 }
